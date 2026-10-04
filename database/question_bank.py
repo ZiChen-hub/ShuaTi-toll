@@ -27,9 +27,8 @@ class QuestionBank:
                 self.questions.append(question)
                 if question.category:
                     self.categories.add(question.category)
-                # 如果有科目字段，也收集
-                if 'subject' in item and item['subject']:
-                    self.subjects.add(item['subject'])
+                if question.subject:
+                    self.subjects.add(question.subject)
             
             return True, f"成功加载 {len(self.questions)} 道题目"
         except Exception as e:
@@ -67,8 +66,7 @@ class QuestionBank:
             
             # 按科目筛选（如果有）
             if subject and subject != '全部':
-                type_questions = [q for q in type_questions 
-                                if hasattr(q, 'subject') and q.subject == subject]
+                type_questions = [q for q in type_questions if q.subject == subject]
             
             if type_questions:
                 if len(type_questions) >= count:
@@ -82,5 +80,4 @@ class QuestionBank:
         """按科目筛选题目"""
         if not subject or subject == '全部':
             return self.questions
-        return [q for q in self.questions 
-                if hasattr(q, 'subject') and q.subject == subject]
+        return [q for q in self.questions if q.subject == subject]

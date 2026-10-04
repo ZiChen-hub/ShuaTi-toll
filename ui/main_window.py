@@ -1,7 +1,7 @@
 # ui/main_window.py
 import tkinter as tk
 import customtkinter as ctk
-from config import COLORS, APP_NAME
+from config import COLORS, APP_NAME, APP_VERSION
 from ui.home_page import HomePage
 from ui.exam_config_page import ExamConfigPage
 from ui.wrong_bank_page import WrongBankPage
@@ -156,7 +156,7 @@ class MainWindow:
         
         ctk.CTkLabel(
             footer,
-            text=f"{APP_NAME} v1.0",
+            text=f"{APP_NAME} v{APP_VERSION}",
             font=("Arial", 11),
             text_color=COLORS["text_secondary"]
         ).pack()

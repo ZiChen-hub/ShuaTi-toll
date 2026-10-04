@@ -3,7 +3,7 @@ import os
 
 # 应用信息
 APP_NAME = "小辰伴学"
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.0.1"
 AI_ASSISTANT_NAME = "小辰助教"
 
 # 颜色方案

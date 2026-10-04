@@ -22,6 +22,8 @@
 
 应用采用深色主题 + 左侧导航栏，包含首页、学习配置、答题、结果、错题本、学习统计与 AI 助教七个页面。
 
+![界面预览](docs/screenshot.png)
+
 ## 🚀 快速开始
 
 ### 环境要求
@@ -101,11 +103,13 @@ python main.py
 
 ## 📦 打包为可执行文件
 
+Windows 下可直接双击 `package.bat` 一键打包（自动检查 PyInstaller、清理旧产物）；也可手动执行：
+
 ```bash
-pyinstaller --noconfirm --onefile --windowed --name "小辰伴学" main.py
+pyinstaller --noconfirm --clean xiaochenbanxue.spec
 ```
 
-打包产物位于 `dist/` 目录，目标机器无需安装 Python 即可运行。
+打包产物为单文件 `dist/小辰伴学.exe`，目标机器无需安装 Python 即可运行。
 
 ## 🗂️ 项目结构
 
@@ -114,6 +118,9 @@ ShuaTi-toll/
 ├── main.py                # 程序入口，ExamApp 应用中枢（考试流程编排、计时、批改）
 ├── config.py              # 全局配置：应用信息、配色、文件路径、模型提供商、AI 提示词
 ├── requirements.txt       # Python 依赖
+├── package.bat            # Windows 一键打包脚本
+├── xiaochenbanxue.spec    # PyInstaller 打包配置（单文件）
+├── docs/                  # 界面截图
 ├── ai/                    # AI 助教模块
 │   ├── ai_config.py       #   AI 配置读写（api_key / provider / model）
 │   ├── ai_assistant.py    #   请求组装、API 调用与响应解析
